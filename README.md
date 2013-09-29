@@ -1,9 +1,11 @@
 # Parallel
 
-Parallel provide a simple way for management of parallel async call, you can remember the API just by a glance.
+Parallel provide a simple but powerful way for management of parallel async call.
 
 Normally we use [async](https://github.com/caolan/async) or [promise](https://github.com/then/promise) for parallel async control.
 They can resolve every kind of async control problem we get, but the problem is they've done too much and it's neither easy to remember the complicated APIs nor refactoring the code.
+
+Consider [chemzqm/serial](https://github.com/chemzqm/serial) if you want to control serial callbacks, they have almost the same API.
 
 ## Installation
 
@@ -22,7 +24,7 @@ You must have `component` installed for browser usage and `mocha`, `mocha-phanto
 ```
 $ npm install -g component mocha mocha-phantomjs
 $ git clone git@github.com:chemzqm/parallel.git
-$ npm install
+$ cd parallel && npm install
 $ make
 $ make test #run test on server side
 $ make phantomjs #run test on phantomjs
@@ -32,15 +34,16 @@ $ make phantomjs #run test on phantomjs
 
 ``` js
 var Parallel = reuiqre('parallel'); //The name is 'node-parallel' in node environment
+var request = request('superagent');
 var parallel = new Parallel();
 parallel.timeout(3000);
-for (var i = 0; i < 3; i++) {
+[1,2,3].forEach(forEach(n){
   parallel.add(function(done){
-    request.get('/user/' + i, function(err, res) {
+    request.get('/user/' + n, function(err, res) {
       done(err, res.body.name);
     })
   })
-}
+});
 parallel.done(function(err, results) {
   if (err) throw err;
   // results => ["jack", "tony", "fat"];
