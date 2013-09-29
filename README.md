@@ -26,8 +26,10 @@ $ npm install -g component mocha mocha-phantomjs
 $ git clone git@github.com:chemzqm/parallel.git
 $ cd parallel && npm install
 $ make
-$ make test #run test on server side
-$ make phantomjs #run test on phantomjs
+#run test on server side
+$ make test 
+#run test through phantomjs
+$ make phantomjs 
 ```
 
 ## Example
