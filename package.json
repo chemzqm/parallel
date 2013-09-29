@@ -1,0 +1,31 @@
+{
+  "name": "parallel",
+  "version": "0.0.1",
+  "description": "Parallel provide a simple way for management of parrallel async call",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chemzqm/parallel.git"
+  },
+  "keywords": [
+    "parallel",
+    "async"
+  ],
+  "author": "chemzqm@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chemzqm/parallel/issues"
+  },
+  "devDependencies": {
+    "chai": "~1.8.0"
+  },
+  "dependencies": {
+    "next-tick": "~0.1.0"
+  }
+}

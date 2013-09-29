@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example of Parallel</title>
+  <script type="text/javascript" src="build/build.js">
+  </script>
+</head>
+<body>
+  <script type="text/javascript">
+    var Parallel = require('parallel');
+    var parallel = new Parallel();
+    parallel.add(function(cb) {
+      cb(null, 'result0');
+    })
+    parallel.add(function(cb) {
+      cb(null, 'result1');
+    })
+    parallel.done(function (err, results) {
+      console.log(results);
+    })
+  </script>
+</body>
+</html>
