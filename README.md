@@ -21,7 +21,7 @@ Via [component](https://github.com/component/component):
 
 You must have `component` installed for browser usage and `mocha`, `mocha-phantomjs` installed for testing.
 
-```
+``` bash
 $ npm install -g component mocha mocha-phantomjs
 $ git clone git@github.com:chemzqm/parallel.git
 $ cd parallel && npm install
