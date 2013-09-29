@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Mocha Runner</title>
+    <link rel="stylesheet" href="../build/build.css" />
+    <script src="../build/build.js"></script>
+    <script type="text/javascript">
+     //需要安装 visionmedia-mocha
+      require('visionmedia-mocha');
+      mocha.setup('bdd');
+    </script>
+    <script src="./spec.js"></script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script type="text/javascript">
+      if (window.mochaPhantomJS) {
+        mochaPhantomJS.run();
+      } else {
+        mocha.run();
+      }
+    </script>
+  </body>
+</html>

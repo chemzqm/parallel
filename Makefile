@@ -6,7 +6,10 @@ build: components index.js
 components: component.json
 	@component install --dev
 
-test:
-	@mocha -R list -t 4000
+phantomjs:
+	@mocha-phantomjs -R list test/test.html
 
-.PHONY: test
+test:
+	@mocha -R list
+
+.PHONY: test phantomjs

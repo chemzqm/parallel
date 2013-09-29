@@ -10,7 +10,10 @@
   "scripts": [
     "index.js"
   ],
-  "development": {},
+  "development": {
+    "visionmedia/mocha": "*",
+    "chaijs/chai": "*"
+  },
   "license": "MIT",
   "remotes": []
 }
