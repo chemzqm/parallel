@@ -18,6 +18,7 @@ As component:
 ## Example
 
 ``` js
+var Parallel = reuiqre('parallel'); //The name is 'node-parallel' in node environment
 var parallel = new Parallel();
 parallel.timeout(3000);
 for (var i = 0; i < 3; i++) {
