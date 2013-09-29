@@ -3,7 +3,7 @@
   "repo": "chemzqm/parallel",
   "description": "a simple way for management of parallel async call",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["parallel", "async"],
   "dependencies": {
     "timoxley/next-tick": "*"
   },
