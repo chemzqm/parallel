@@ -29,16 +29,19 @@ Parallel.prototype.add = function(fn) {
   this.len = (this.len || 0) + 1;
   var cb = timeout(function(err, res) {
     if (self.finished === true) return;
+    if(err) return self.cb(err);
     var results = self.results;
     results.push(res);
-    self.called = (self.called || 0) + 1;
-    self.finish(err);
+    self.len = self.len -1;
+    if (self.len === 0) self.cb();
   }, this.t);
-  fn(function() {
-    var args = arguments;
-    nextTick(function() {
-      cb.apply(null, args);
-    })
+  this.cbs.push(function() {
+    fn(function() {
+      var args = arguments;
+      nextTick(function() {
+        cb.apply(null, args);
+      })
+    });
   });
 }
 
@@ -54,20 +57,12 @@ Parallel.prototype.done = function(cb) {
   var self = this;
   this.cb = function() {
     self.finished = true;
-    cb.apply(null, arguments);
+    cb.call(null, arguments[0], self.results);
     delete self.cbs;
   }
-  this.finish();
-}
-
-Parallel.prototype.finish = function(err) {
-  var cb = this.cb;
-  if (err) this.err = err;
-  if (err && cb) return cb(err, this.results);
-  if(!cb || this.finished) return;
-  if (this.len === this.called) {
-    cb(this.err, this.results);
-  }
+  this.cbs.forEach(function(fn) {
+    fn();
+  })
 }
 
 function timeout (fn, ms) {
