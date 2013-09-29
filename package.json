@@ -1,5 +1,5 @@
 {
-  "name": "parallel",
+  "name": "node-parallel",
   "version": "0.0.1",
   "description": "Parallel provide a simple way for management of parrallel async call",
   "main": "index.js",

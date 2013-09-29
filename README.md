@@ -9,7 +9,7 @@ They can resolve every kind of async control problem we get, but the problem is 
 
 For node:
 
-    npm install parallel
+    npm install node-parallel
 
 As component:
 
