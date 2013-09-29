@@ -7,13 +7,26 @@ They can resolve every kind of async control problem we get, but the problem is 
 
 ## Installation
 
-For node:
+Via npm:
 
     npm install node-parallel
 
-As component:
+Via [component](https://github.com/component/component):
 
     component install chemzqm/parallel
+
+## Testing
+
+You must have `component` installed for browser usage and `mocha`, `mocha-phantomjs` installed for testing.
+
+```
+$ npn install -g component mocha mocha-phantomjs
+$ git clone git@github.com:chemzqm/parallel.git
+$ npm install
+$ make
+$ make test #run test on server side
+$ make phantomjs #run test on phantomjs
+```
 
 ## Example
 
