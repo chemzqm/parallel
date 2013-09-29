@@ -15,7 +15,7 @@ Via [component](https://github.com/component/component):
 
     component install chemzqm/parallel
 
-## Testing
+## Test on node and browser
 
 You must have `component` installed for browser usage and `mocha`, `mocha-phantomjs` installed for testing.
 

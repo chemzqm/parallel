@@ -100,5 +100,21 @@ describe('Parallel', function() {
     expect(fn).to.throw(/^Callback/);
     done();
   })
+
+  it('should be done immediately when error occur', function(done) {
+    var parallel = new Parallel();
+    var s = new Date().getTime();
+    parallel.add(function(cb) {
+      cb(new Error('user error'));
+    })
+    parallel.add(function(cb) {
+      setTimeout(function() {
+        cb(null, []);
+      }, 200);
+    })
+    parallel.done(function(err) {
+      expect(err.message).to.match(/^user/);
+    })
+  })
 })
 
