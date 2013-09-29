@@ -105,7 +105,9 @@ describe('Parallel', function() {
     var parallel = new Parallel();
     var s = new Date().getTime();
     parallel.add(function(cb) {
-      cb(new Error('user error'));
+      setTimeout(function() {
+        cb(new Error('user error'));
+      }, 1);
     })
     parallel.add(function(cb) {
       setTimeout(function() {
@@ -113,7 +115,10 @@ describe('Parallel', function() {
       }, 200);
     })
     parallel.done(function(err) {
+      var e = new Date().getTime();
+      expect(e - s).to.be.below(200);
       expect(err.message).to.match(/^user/);
+      done();
     })
   })
 })
