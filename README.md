@@ -17,6 +17,13 @@ Via [component](https://github.com/component/component):
 
     component install chemzqm/parallel
 
+## Features
+
+* Unified error handling.
+* Timeout support.
+* Immediate finished when error occur.
+* No magic on finished callback, just one function.
+
 ## Test on node and browser
 
 You must have `component` installed for browser usage and `mocha`, `mocha-phantomjs` installed for testing.
