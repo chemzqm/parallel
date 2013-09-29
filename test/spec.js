@@ -11,13 +11,13 @@ function getUser(n, done, defer) {
 describe('Parallel', function() {
   it('should return all the users', function(done) {
     var parallel = new Parallel();
-    for (var i = 0; i < 2; i++) {
+    [0, 1].forEach(function(n) {
       parallel.add(function(cb) {
-        getUser(i, function(err, user) {
+        getUser(n, function(err, user) {
           cb(err, user.name);
         })
       });
-    }
+    })
     parallel.done(function(err, results) {
       expect(results).to.eql(['user0', 'user1']);
       done(err);
@@ -26,11 +26,11 @@ describe('Parallel', function() {
 
   it('should throw an timeout error', function(done) {
     var parallel = new Parallel();
-    parallel.timeout(100);
+    parallel.timeout(10);
     parallel.add(function(cb) {
       getUser(0, function(err, user) {
         cb(err, user);
-      }, 200);
+      }, 20);
     })
     parallel.done(function(err) {
       expect(err).to.be.an.instanceof(Error);
@@ -44,7 +44,7 @@ describe('Parallel', function() {
     parallel.add(function(cb) {
       setTimeout(function() {
         cb(new Error('Custom error'));
-      }, 100);
+      }, 10);
     })
     parallel.add(function(cb) {
       cb(null, 'result');
@@ -101,7 +101,7 @@ describe('Parallel', function() {
     done();
   })
 
-  it('should be done immediately when error occur', function(done) {
+  it('should be finished immediately when error occur', function(done) {
     var parallel = new Parallel();
     var s = new Date().getTime();
     parallel.add(function(cb) {
