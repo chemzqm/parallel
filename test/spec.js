@@ -121,5 +121,28 @@ describe('Parallel', function() {
       done();
     })
   })
+
+  it('should return the result in sequence', function(done) {
+    var parallel = new Parallel();
+    parallel.add(function(cb) {
+      setTimeout(function() {
+        cb(null, 1);
+      }, 50);
+    })
+    parallel.add(function(cb) {
+      setTimeout(function() {
+        cb(null, 2);
+      }, 20);
+    })
+    parallel.add(function(cb) {
+      setTimeout(function() {
+        cb(null, 3);
+      }, 10);
+    })
+    parallel.done(function(err, rs) {
+      expect(rs).to.eql([1, 2, 3]);
+      done(err);
+    })
+  })
 })
 

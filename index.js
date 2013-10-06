@@ -27,11 +27,12 @@ Parallel.prototype.timeout = function(ms) {
 Parallel.prototype.add = function(fn) {
   var self = this;
   this.len = (this.len || 0) + 1;
+  var i = this.len - 1;
   var cb = timeout(function(err, res) {
     if (self.finished === true) return;
     if(err) return self.cb(err);
     var results = self.results;
-    results.push(res);
+    results[i] = res;
     self.len = self.len -1;
     if (self.len === 0) self.cb();
   }, this.t);
