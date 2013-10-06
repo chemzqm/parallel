@@ -1,6 +1,6 @@
 {
   "name": "node-parallel",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Parallel provide a simple way for management of parrallel async/sync call",
   "main": "index.js",
   "scripts": {
