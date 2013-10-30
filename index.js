@@ -61,6 +61,7 @@ Parallel.prototype.done = function(cb) {
     cb.call(null, arguments[0], self.results);
     delete self.cbs;
   }
+  if (this.cbs.length === 0) return this.cb();
   this.cbs.forEach(function(fn) {
     fn();
   })

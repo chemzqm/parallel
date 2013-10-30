@@ -144,5 +144,13 @@ describe('Parallel', function() {
       done(err);
     })
   })
+
+  it('should trigger done callback if no function added', function(done) {
+    var parallel = new Parallel();
+    parallel.done(function(err, rs) {
+      expect(err).to.be.undefined;
+      done(err);
+    })
+  })
 })
 
