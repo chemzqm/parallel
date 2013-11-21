@@ -46,7 +46,7 @@ var Parallel = reuiqre('parallel'); //The name is 'node-parallel' in node enviro
 var request = request('superagent');
 var parallel = new Parallel();
 parallel.timeout(3000);
-[1,2,3].forEach(forEach(n){
+[1,2,3].forEach(function (n){
   parallel.add(function(done){
     request.get('/user/' + n, function(err, res) {
       done(err, res.body.name);
