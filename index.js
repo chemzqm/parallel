@@ -8,6 +8,7 @@ function Parallel () {
   this.results = [];
   this.t = 10000;
   this.cbs = [];
+  return this;
 }
 
 /**
@@ -17,6 +18,7 @@ function Parallel () {
  */
 Parallel.prototype.timeout = function(ms) {
   this.t = ms;
+  return this;
 }
 
 /**
@@ -45,6 +47,7 @@ Parallel.prototype.add = function(fn) {
       })
     });
   });
+  return this;
 }
 
 /**
