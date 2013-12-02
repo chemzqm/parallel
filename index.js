@@ -4,6 +4,7 @@ var nextTick = require('next-tick');
  * @api public
  */
 function Parallel () {
+  if (!(this instanceof Parallel)) return new Parallel();
   this.results = [];
   this.t = 10000;
   this.cbs = [];
