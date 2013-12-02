@@ -41,22 +41,22 @@ $ make phantomjs
 
 ## Example
 
-``` js
-var Parallel = reuiqre('parallel'); //The name is 'node-parallel' in node environment
-var request = request('superagent');
-var parallel = new Parallel();
-parallel.timeout(3000);
-[1,2,3].forEach(function (n){
-  parallel.add(function(done){
-    request.get('/user/' + n, function(err, res) {
-      done(err, res.body.name);
-    })
+```js
+var parallel = require('parallel');
+var fs = require('fs');
+
+parallel()
+  .timeout(3000)
+  .add(function(done) {
+    fs.readFile('package.json', 'utf8', done);
   })
-});
-parallel.done(function(err, results) {
-  if (err) throw err;
-  // results => ["jack", "tony", "fat"];
-});
+  .add(function(done) {
+    fs.readFile('index.js', 'utf8', done);
+  })
+  .done(function(err, results) {
+    console.log(results[0]);
+    console.log(results[1]);
+  })
 ```
 
 ## API
