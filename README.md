@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/chemzqm/parallel.png)](http://travis-ci.org/chemzqm/parallel)
+
 # Parallel
 
 Parallel provide a simple but powerful way for management of parallel async call.

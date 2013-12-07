@@ -4,7 +4,7 @@
   "description": "Parallel provide a simple way for management of parrallel async/sync call",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
