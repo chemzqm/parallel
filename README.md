@@ -1,5 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/chemzqm/parallel.png)](http://travis-ci.org/chemzqm/parallel)
-[![Coverage Status](https://coveralls.io/repos/chemzqm/moment-range/badge.png?branch=master)](https://coveralls.io/r/chemzqm/moment-range?branch=master)
+[![Coverage Status](https://coveralls.io/repos/chemzqm/parallel/badge.png?branch=master)](https://coveralls.io/r/chemzqm/parallel?branch=master)
 
 # Parallel
 
