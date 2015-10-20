@@ -1,6 +1,6 @@
 /*global it,describe*/
 var expect = require('chai').expect;
-var Parallel = typeof window !== 'undefined' ? require('parallel') : require('..');
+var Parallel = require('..');
 
 function getUser(n, done, defer) {
   setTimeout(function() {
