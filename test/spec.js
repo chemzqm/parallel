@@ -145,6 +145,29 @@ describe('Parallel', function() {
     })
   })
 
+  it('shoud ignore add callback called more than once', function (done) {
+    var parallel = new Parallel();
+    parallel.add(function (cb) {
+      setTimeout(function () {
+        cb(null, 1);
+      },50)
+      setTimeout(function () {
+        cb(new Error('failed'));
+      },60)
+    })
+
+    parallel.add(function (cb) {
+      setTimeout(function () {
+        cb(null, 2)
+      })
+    })
+    parallel.done(function (err, rs) {
+      if (err) return done(err)
+      expect(rs).to.eql([1, 2]);
+      done()
+    })
+  })
+
   it('should trigger done callback if no function added', function(done) {
     var parallel = new Parallel();
     parallel.done(function(err, rs) {
