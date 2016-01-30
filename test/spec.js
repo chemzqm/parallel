@@ -159,7 +159,7 @@ describe('Parallel', function() {
     parallel.add(function (cb) {
       setTimeout(function () {
         cb(null, 2)
-      })
+      },100)
     })
     parallel.done(function (err, rs) {
       if (err) return done(err)
